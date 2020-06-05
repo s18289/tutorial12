@@ -13,7 +13,7 @@ namespace tutorial12.Configurations
         public void Configure(EntityTypeBuilder<Employee> builder)
         {
             builder.HasKey(e => e.IdEmployee)
-                  .HasName("Impl_pk");
+                  .HasName("Employee_pk");
 
             builder.Property(e => e.Name)
                   .IsRequired()
