@@ -6,10 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using tutorial12.Models;
+using tutorial12.Services;
 
 namespace tutorial12
 {
@@ -25,6 +28,11 @@ namespace tutorial12
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IOrderDbService, SqlServerOrderDbService>();
+            services.AddDbContext<Context>(options =>
+            {
+                options.UseSqlServer("Data Source=db-mssql;Initial Catalog=s18289;Integrated Security=True; MultipleActiveResultSets=true");
+            });
             services.AddControllers();
         }
 

@@ -13,5 +13,7 @@ namespace tutorial12.Models
         public string Notes { get; set; }
         public int IdClient { get; set; }
         public int IdEmployee { get; set; }
+        public virtual Customer IdCustomerNav { get; set; }
+        public virtual Employee IdEmployeeNav { get; set; }
     }
 }

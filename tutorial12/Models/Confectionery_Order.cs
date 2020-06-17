@@ -11,5 +11,7 @@ namespace tutorial12.Models
         public int IdOrder { get; set; }
         public int Quantity { get; set; }
         public string Notes { get; set; }
+        public virtual Order IdOrderNav { get; set; }
+        public virtual Confectionery IdConfectioneryNav { get; set; }
     }
 }
