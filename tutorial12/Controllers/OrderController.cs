@@ -21,10 +21,16 @@ namespace tutorial12.Controllers
             dbService = orderDbService;
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult GetOrdersByName(GetOrderRequest request)
         {
             return Ok(dbService.GetOrdersByName(request));
+        }
+
+        [HttpPost("/api/clients/{IdClient}/orders")]
+        public IActionResult AddOrder(int IdClient, AddOrderRequest request)
+        {
+            return Ok(dbService.AddOrder(IdClient, request));
         }
     }
 }
